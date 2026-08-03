@@ -1195,7 +1195,509 @@
   gap: 0.35rem;
 }
 
-/* Responsive Layout */
+/* ==========================================================================
+   Responsive Layout
+   ========================================================================== */
+
+/* ── Mobile: up to 480px ── */
+@media (max-width: 480px) {
+  /* Nav */
+  .nav {
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .nav__logo-img {
+    height: 36px;
+  }
+
+  .theme-toggle {
+    padding: 2px;
+  }
+
+  .theme-toggle__btn {
+    padding: 0.25rem 0.45rem;
+    font-size: 0.72rem;
+    gap: 0.2rem;
+  }
+
+  .theme-toggle__label {
+    display: none;
+  }
+
+  .nav__toggle {
+    width: 2.35rem;
+    height: 2.35rem;
+    gap: 5px;
+  }
+
+  .nav__toggle span {
+    width: 1.15rem;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+    padding: 2rem 1rem 3rem;
+    gap: 2rem;
+  }
+
+  .hero__badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.72rem;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero__name {
+    font-size: 2.2rem;
+  }
+
+  .hero__lede {
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 2.85rem;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.92rem;
+  }
+
+  .hero__socials {
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .hero__social-icon-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  /* Profile Card */
+  .hero__profile-card {
+    padding: 6px;
+    border-radius: 1rem;
+  }
+
+  .hero__profile-inner {
+    border-radius: 0.85rem;
+  }
+
+  .hero__profile-overlay {
+    padding: 1rem;
+  }
+
+  .hero__profile-name {
+    font-size: 1rem;
+  }
+
+  .hero__profile-tag {
+    font-size: 0.75rem;
+  }
+
+  /* Logo Banner */
+  .hero__logo-banner {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+  }
+
+  .hero__logo-banner-img {
+    height: 40px;
+  }
+
+  .hero__logo-banner-meta span:first-child {
+    font-size: 0.7rem;
+  }
+
+  .hero__logo-banner-meta span:last-child {
+    font-size: 0.82rem;
+  }
+
+  /* Sections */
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .section__title {
+    font-size: 1.75rem;
+  }
+
+  .section__copy {
+    font-size: 0.95rem;
+    margin-top: 0.85rem;
+  }
+
+  .section__label {
+    font-size: 0.78rem;
+  }
+
+  /* Skills */
+  .skills {
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .skills li {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  /* Spotlight Card */
+  .spotlight-card {
+    padding: 1rem;
+    border-radius: 1rem;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+
+  .spotlight-card__badge {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.65rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .spotlight-card__title {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .spotlight-card__desc {
+    font-size: 0.88rem;
+  }
+
+  /* Project Cards */
+  .project-grid {
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .project-card__title {
+    font-size: 1.3rem;
+  }
+
+  .project-card__desc {
+    font-size: 0.92rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-card__stack li {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* Contact */
+  .contact__grid {
+    gap: 0.85rem;
+    margin-top: 2rem;
+  }
+
+  .contact__item {
+    padding: 1.15rem;
+  }
+
+  .contact__value {
+    font-size: 1rem;
+  }
+
+  .contact__social-label {
+    font-size: 0.95rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .social-card {
+    padding: 1rem;
+  }
+
+  .social-card__icon-wrap {
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+  }
+
+  .social-card__name {
+    font-size: 0.92rem;
+  }
+
+  .social-card__handle {
+    font-size: 0.78rem;
+  }
+
+  .contact__cta-wrap {
+    margin-top: 1.75rem;
+  }
+
+  .contact__cta-wrap .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Buttons global */
+  .btn {
+    min-height: 2.85rem;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.92rem;
+    border-radius: 0.65rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 1rem;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__brand {
+    justify-content: center;
+  }
+
+  .footer__logo {
+    height: 44px;
+  }
+
+  .footer__socials {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .footer__text {
+    align-items: center;
+    font-size: 0.82rem;
+  }
+
+  /* Mobile menu adjustments */
+  .mobile-menu {
+    padding: 1rem;
+  }
+
+  .mobile-menu__logo {
+    height: 44px;
+  }
+
+  .mobile-menu__link {
+    padding: 0.85rem 1rem;
+    border-radius: 0.85rem;
+  }
+
+  .mobile-menu__link-title {
+    font-size: 1.1rem;
+  }
+
+  .mobile-menu__link-sub {
+    font-size: 0.75rem;
+  }
+
+  .mobile-menu__link-num {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.55rem;
+  }
+
+  .mobile-menu__cta-btn {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.92rem;
+    border-radius: 0.75rem;
+  }
+
+  .mobile-menu__meta {
+    font-size: 0.75rem;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .mobile-menu__theme-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  /* Atmosphere glows — smaller on mobile */
+  .atmosphere__glow--a {
+    width: min(70vw, 280px);
+    height: min(70vw, 280px);
+  }
+
+  .atmosphere__glow--b {
+    width: min(60vw, 240px);
+    height: min(60vw, 240px);
+  }
+
+  .atmosphere__glow--c {
+    width: min(50vw, 200px);
+    height: min(50vw, 200px);
+  }
+}
+
+/* ── Tablet: 481px to 899px ── */
+@media (min-width: 481px) and (max-width: 899px) {
+  /* Nav */
+  .nav {
+    padding: 0.55rem clamp(1rem, 4vw, 2rem);
+    gap: 0.75rem;
+  }
+
+  .nav__logo-img {
+    height: 40px;
+  }
+
+  .theme-toggle__btn {
+    padding: 0.3rem 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+    padding: 3rem clamp(1.25rem, 4vw, 2.5rem) 4rem;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .hero__content {
+    text-align: center;
+  }
+
+  .hero__badge {
+    justify-content: center;
+  }
+
+  .hero__name {
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+  }
+
+  .hero__lede {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__socials {
+    justify-content: center;
+  }
+
+  /* Profile Card — constrain width on tablet */
+  .hero__visual {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .hero__profile-card {
+    border-radius: 1.25rem;
+  }
+
+  /* Logo Banner */
+  .hero__logo-banner {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Sections */
+  .section {
+    padding: 4rem clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .section__title {
+    font-size: clamp(1.85rem, 4.5vw, 2.8rem);
+  }
+
+  /* Spotlight */
+  .spotlight-card {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .spotlight-card__image-wrap {
+    max-height: 320px;
+    overflow: hidden;
+    border-radius: 0.85rem;
+  }
+
+  .spotlight-card__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Project Grid — 2 columns on wider tablets */
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .project-card {
+    padding: 1.75rem;
+  }
+
+  .project-card__title {
+    font-size: 1.4rem;
+  }
+
+  /* Contact Grid — 2+1 layout */
+  .contact__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .contact__grid .contact__item:last-child {
+    grid-column: 1 / -1;
+  }
+
+  /* Social Grid */
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Footer — stack centered */
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 2.25rem clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .footer__socials {
+    justify-content: center;
+  }
+
+  .footer__text {
+    align-items: center;
+  }
+}
+
+/* ── Desktop: 900px+ ── */
 @media (min-width: 900px) {
   .nav__links,
   .nav__cta {
