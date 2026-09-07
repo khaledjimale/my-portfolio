@@ -3,6 +3,9 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import logo from './assets/khaledjimale_logos.png'
 import profileImg from './assets/my-images/khaledjimale.jpg'
 import seminarImg from './assets/my-images/seminar.jpg'
+import bileWorkshopImg from './assets/my-images/Bile_Initiative.jpg'
+import bileTrainingImg from './assets/my-images/Bile_initiative_01.jpg'
+import bileLaunchImg from './assets/my-images/Daahfurka_Mashruuc_bile.jpg'
 import './App.css'
 
 const profile = {
@@ -31,6 +34,15 @@ const skills = [
 ]
 
 const projects = [
+  {
+    title: 'Smart Property Registration & Recovery system',
+    tag: 'Full-Stack Platform',
+    description:
+      'A property registration and recovery platform that helps owners register belongings, transfer ownership, and report lost or stolen items, with dedicated workflows for shopkeepers and police.',
+    stack: ['React', 'Node.js', 'Express', 'MongoDB'],
+    href: 'https://github.com/khaledjimale/smart-property-tracking',
+    cta: 'View on GitHub',
+  },
   {
     title: 'Benadir App for Online Learning',
     tag: 'EdTech Platform',
@@ -180,6 +192,18 @@ function App() {
   const reduceMotion = useReducedMotion()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 900px)')
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false) }
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') setMenuOpen(false) }
+    desktop.addEventListener('change', closeOnDesktop)
+    window.addEventListener('keydown', closeOnEscape)
+    return () => {
+      desktop.removeEventListener('change', closeOnDesktop)
+      window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -414,6 +438,21 @@ function App() {
                 Actively engaging in tech workshops, career development forums, and industry certifications to stay ahead in modern software engineering.
               </p>
             </motion.div>
+
+            <motion.article className="spotlight-card bile-training" {...motionProps}>
+              <div className="bile-training__gallery" aria-label="Bile Initiative training photos">
+                <img src={bileLaunchImg} alt="Participants at the Bile Initiative 2026 launch" width="2048" height="1365" loading="lazy" />
+                <img src={bileWorkshopImg} alt="Attendees listening during a Bile Initiative workshop" width="1080" height="719" loading="lazy" />
+                <img src={bileTrainingImg} alt="Participants taking part in a Bile Initiative training session" width="1080" height="719" loading="lazy" />
+              </div>
+              <div className="spotlight-card__content">
+                <span className="spotlight-card__badge">Software Development Training</span>
+                <h3 className="spotlight-card__title">Bile Initiative 2026</h3>
+                <p className="bile-training__dates"><time dateTime="2026-08-20">20 August 2026</time> – <time dateTime="2026-09-03">3 September 2026</time></p>
+                <p className="spotlight-card__desc">Completed the Software Development track, gaining practical experience through real-life projects and receiving a certificate of participation.</p>
+                <p className="spotlight-card__desc bile-training__context">The programme trained 150 university students across Software Development, Software Analysis, Artificial Intelligence, and Cloud Computing.</p>
+              </div>
+            </motion.article>
 
             <motion.div
               className="spotlight-card"

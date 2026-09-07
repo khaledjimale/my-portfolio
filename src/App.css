@@ -1756,3 +1756,30 @@
     scroll-behavior: auto;
   }
 }
+
+/* Training gallery and responsive content safeguards. */
+.experience .spotlight-card { margin-top: 2.5rem; }
+.bile-training__gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; align-content: center; }
+.bile-training__gallery img { width: 100%; height: auto; border-radius: 0.65rem; border: 1px solid var(--line-highlight); }
+.bile-training__gallery img:first-child { grid-column: 1 / -1; }
+.bile-training__dates { color: var(--cyan); font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; }
+.bile-training__context { margin-top: 1rem; }
+.hero > *, .spotlight-card > *, .project-grid > *, .contact__grid > * { min-width: 0; }
+.hero__logo-banner-meta { min-width: 0; }
+.hero__profile-info { flex-wrap: wrap; gap: 0.25rem 0.75rem; }
+.section { scroll-margin-top: 5rem; }
+.nav__cta { white-space: nowrap; }
+.mobile-menu__header, .mobile-menu__footer { flex-shrink: 0; }
+.mobile-menu { background: var(--bg); }
+.mobile-menu__link, .skills li { background: var(--card-bg); }
+@media (max-width: 599px) {
+  .project-grid, .contact__grid, .social-grid { grid-template-columns: minmax(0, 1fr); }
+  .bile-training__gallery { grid-template-columns: minmax(0, 1fr); }
+  .experience .spotlight-card { margin-top: 1.75rem; }
+}
+@media (min-width: 900px) and (max-width: 1100px) {
+  .nav { gap: 0.75rem; padding-inline: 1.25rem; }
+  .nav__links { gap: 1.1rem; }
+  .hero { gap: 2rem; }
+  .nav .theme-toggle__label { display: none; }
+}
