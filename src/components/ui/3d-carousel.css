@@ -1,0 +1,56 @@
+.photo-carousel { --carousel-radius: 360px; min-width: 0; }
+.photo-carousel__stage { height: 420px; overflow: hidden; display: grid; place-items: center; perspective: 1000px; border-radius: 1.25rem; background: radial-gradient(ellipse at center, var(--accent-soft), transparent 75%); }
+.photo-carousel__ring { position: relative; width: 160px; height: 280px; transform-style: preserve-3d; touch-action: pan-y; cursor: grab; }
+.photo-carousel__ring:active { cursor: grabbing; }
+.photo-carousel__face { position: absolute; inset: 0; padding: 5px; border: 1px solid var(--line-highlight); border-radius: .8rem; background: var(--bg-elevated); backface-visibility: hidden; box-shadow: 0 12px 28px #0003; }
+.photo-carousel__face img { width: 100%; height: 100%; object-fit: contain; border-radius: .5rem; pointer-events: none; }
+.photo-carousel__controls { display: flex; align-items: center; justify-content: center; gap: 1.75rem; margin-top: 1rem; font-variant-numeric: tabular-nums; font-weight: 700; }
+.photo-carousel__controls button, .photo-carousel__close { width: 44px; height: 44px; border: 1px solid var(--line-highlight); border-radius: 50%; background: var(--card-bg); }
+.photo-carousel__controls span span { color: var(--ink-soft); font-weight: 400; }
+.photo-carousel__hint { text-align: center; font-size: .75rem; color: var(--ink-muted); margin-top: .75rem; }
+.photo-carousel button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+.photo-carousel__dialog { position: fixed; inset: 0; margin: auto; width: min(900px, 94vw); max-width: 94vw; max-height: 94dvh; padding: 3.5rem 1rem 1rem; border: 1px solid var(--line-highlight); border-radius: 1rem; color: var(--ink); background: var(--bg-elevated); text-align: center; }
+.photo-carousel__dialog::backdrop { background: #000c; backdrop-filter: blur(6px); }
+.photo-carousel__dialog img { width: 100%; height: min(70dvh, 800px); object-fit: contain; }
+.photo-carousel__dialog a { display: inline-block; margin-top: .75rem; color: var(--cyan); }
+.photo-carousel__close { position: absolute; right: .5rem; top: .5rem; }
+@media (max-width: 480px) { .photo-carousel { --carousel-radius: 290px; } .photo-carousel__ring { width: 130px; height: 240px; } .photo-carousel__stage { height: 350px; perspective: 850px; } }
+
+/* Keep the frame on the photograph, with space for perspective scaling. */
+.photo-carousel__stage { touch-action: pan-y; cursor: grab; user-select: none; }
+.photo-carousel__stage:active { cursor: grabbing; }
+.photo-carousel__ring { height: 250px; will-change: transform; }
+.photo-carousel__face { inset: auto 0; top: 50%; height: auto; padding: 0; border: 0; background: transparent; translate: 0 -50%; overflow: hidden; border-radius: .65rem; }
+.photo-carousel__face img { display: block; width: 100%; height: auto; max-height: 250px; object-fit: contain; border-radius: .65rem; }
+@media (max-width: 480px) {
+  .photo-carousel__ring { height: 220px; }
+  .photo-carousel__face img { max-height: 220px; }
+  .photo-carousel__hint { padding-inline: .5rem; }
+}
+
+/* Prominent carousel navigation with motion feedback. */
+.photo-carousel__controls { gap: clamp(1.25rem, 4vw, 2rem); margin-top: 1.4rem; }
+.photo-carousel__controls > button {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 56px; height: 56px; border: 2px solid var(--cyan);
+  color: var(--bg); background: var(--cyan);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, .16);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+}
+.photo-carousel__controls > button > span { color: inherit; font-size: 2rem; font-weight: 700; line-height: 1; display: block; transition: transform .2s ease; }
+.photo-carousel__controls > button:hover { transform: translateY(-3px); background-color: color-mix(in srgb, var(--cyan) 80%, #000); border-color: var(--cyan); box-shadow: 0 7px 18px rgba(15, 23, 42, .24), 0 0 0 6px color-mix(in srgb, var(--cyan) 18%, transparent); }
+.photo-carousel__controls > button:first-child:hover > span { transform: translateX(-3px); }
+.photo-carousel__controls > button:last-child:hover > span { transform: translateX(3px); }
+.photo-carousel__controls > button:active { transform: scale(.92); }
+.photo-carousel__controls > button:last-child { animation: carousel-next-cue 2s ease-in-out 3; }
+.photo-carousel__controls > button:last-child:hover { animation: none; }
+.photo-carousel__controls > button:focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
+@keyframes carousel-next-cue {
+  0%, 100% { box-shadow: 0 4px 12px rgba(15, 23, 42, .16), 0 0 0 0 rgba(100, 116, 139, .2); }
+  55% { box-shadow: 0 5px 16px rgba(15, 23, 42, .2), 0 0 0 9px rgba(100, 116, 139, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-carousel__controls > button, .photo-carousel__controls > button > span { animation: none !important; transition: none; }
+  .photo-carousel__controls > button:hover, .photo-carousel__controls > button:active,
+  .photo-carousel__controls > button:hover > span { transform: none; }
+}

@@ -6,7 +6,20 @@ import seminarImg from './assets/my-images/seminar.jpg'
 import bileWorkshopImg from './assets/my-images/Bile_Initiative.jpg'
 import bileTrainingImg from './assets/my-images/Bile_initiative_01.jpg'
 import bileLaunchImg from './assets/my-images/Daahfurka_Mashruuc_bile.jpg'
+import bileCertificate from './assets/certificates/bile-software-development-2026.pdf'
 import './App.css'
+import { ThreeDPhotoCarousel } from './components/ui/3d-carousel'
+
+const graduationPhotos = Object.entries(
+  import.meta.glob<string>('./assets/graduation_images/*.{png,jpg,jpeg}', {
+    eager: true,
+    query: '?url',
+    import: 'default',
+  }),
+).filter(([path]) => !path.endsWith('/ChatGPT Image Sep 18, 2026, 03_01_21 PM (1).png')).sort(([a], [b]) => {
+  const originalFirst = Number(b.includes('KHAALID-')) - Number(a.includes('KHAALID-'))
+  return originalFirst || a.localeCompare(b, undefined, { numeric: true })
+})
 
 const profile = {
   name: 'Khalid Abdulkadir Jimale',
@@ -188,6 +201,7 @@ function ThemeToggle({ theme, setTheme }: { theme: Theme; setTheme: (t: Theme) =
 }
 
 function App() {
+
   const [theme, setTheme] = useTheme()
   const reduceMotion = useReducedMotion()
   const [scrolled, setScrolled] = useState(false)
@@ -451,6 +465,14 @@ function App() {
                 <p className="bile-training__dates"><time dateTime="2026-08-20">20 August 2026</time> – <time dateTime="2026-09-03">3 September 2026</time></p>
                 <p className="spotlight-card__desc">Completed the Software Development track, gaining practical experience through real-life projects and receiving a certificate of participation.</p>
                 <p className="spotlight-card__desc bile-training__context">The programme trained 150 university students across Software Development, Software Analysis, Artificial Intelligence, and Cloud Computing.</p>
+                <div className="bile-training__certificate">
+                  <a className="btn btn--primary" href={bileCertificate} target="_blank" rel="noreferrer">
+                    View Certificate <span aria-hidden="true">↗</span>
+                  </a>
+                  <a className="project-card__link" href={bileCertificate} download="Khalid-Jimale-Bile-Software-Development-2026.pdf">
+                    Download PDF <span aria-hidden="true">↓</span>
+                  </a>
+                </div>
               </div>
             </motion.article>
 
@@ -487,6 +509,27 @@ function App() {
         </section>
 
         {/* Selected Work Section */}
+        <section id="graduation" className="section graduation" aria-labelledby="graduation-title">
+          <motion.div className="section__inner" {...motionProps}>
+            <div className="graduation__heading">
+              <p className="section__label">A personal milestone</p>
+              <span className="graduation__year">CLASS OF 2026</span>
+            </div>
+            <div className="graduation__layout">
+            <ThreeDPhotoCarousel photos={graduationPhotos.map(([, src], index) => ({ src, alt: `Khalid Jimale, Class of 2026 — portrait ${index + 1}` }))} />
+            <div className="graduation__message">
+              <h2 id="graduation-title" className="section__title">Alhamdulillah,<br /><span>I did it!</span></h2>
+              <p>First and foremost, all praise belongs to Allah (SWT) for making this day possible.</p>
+              <p>To my amazing parents and family, thank you for every prayer, sacrifice, word of encouragement, and moment of support.</p>
+              <p>To my teachers and lecturers, thank you for sharing your knowledge and guiding me throughout this journey.</p>
+              <p>This achievement is not mine alone. It belongs to everyone who believed in me and supported me along the way.</p>
+              <p className="graduation__milestone">A dream achieved. A new journey begins.</p>
+              <p className="graduation__signoff">Alhamdulillah for everything.<span>Khalid Abdulkadir Jimale · Class of 2026</span></p>
+            </div>
+            </div>
+          </motion.div>
+        </section>
+
         <section id="work" className="section work">
           <div className="section__inner">
             <motion.div {...motionProps}>
@@ -632,3 +675,4 @@ function App() {
 }
 
 export default App
+
