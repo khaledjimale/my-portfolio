@@ -70,7 +70,7 @@ const projects = [
     tag: 'Live Web App',
     description:
       'A real-world online publication and media platform serving readers daily. Optimized for speed, mobile readability, and content delivery.',
-    stack: ['React', 'CMS', 'Responsive Design', 'SEO'],
+    stack: ['WordPress', 'CMS', 'Responsive Design', 'SEO'],
     href: 'https://wargeyska.net/',
     cta: 'Visit Live Website',
   },
