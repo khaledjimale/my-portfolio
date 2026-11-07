@@ -54,3 +54,11 @@
   .photo-carousel__controls > button:hover, .photo-carousel__controls > button:active,
   .photo-carousel__controls > button:hover > span { transform: none; }
 }
+
+/* Keep the arrow row balanced on narrow phone screens. */
+@media (max-width: 480px) {
+  .photo-carousel__controls { width: min(100%, 19rem); margin-inline: auto; gap: 1rem; }
+  .photo-carousel__controls > button { width: 50px; height: 50px; }
+  .photo-carousel__controls > button > span { font-size: 1.75rem; }
+  .photo-carousel__controls > span { min-width: 4.25rem; text-align: center; font-size: 1.05rem; }
+}
