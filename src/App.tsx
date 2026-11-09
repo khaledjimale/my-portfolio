@@ -33,6 +33,7 @@ const profile = {
 }
 
 const skills = [
+  'Python',
   'Java',
   'JavaScript',
   'TypeScript',
